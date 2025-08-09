@@ -8,12 +8,18 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'org.springframework.boot' version '3.2.0' // Add this line
+    id 'io.spring.dependency-management' version '1.1.4' // Add this line too
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
+ext{
+    lombokVersion = '1.18.28'
+}
+
 
 dependencies {
     testImplementation libs.junit
@@ -25,7 +31,18 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server:3.2.12'
     implementation 'org.springframework.boot:spring-boot-starter-security:3.2.12'
     implementation 'org.modelmapper:modelmapper:3.2.0'
-    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.3.0'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok' , version: '1.18.28'
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+    testImplementation group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    implementation 'org.springframework.boot:spring-boot-starter'
+
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
