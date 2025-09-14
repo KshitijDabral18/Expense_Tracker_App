@@ -22,28 +22,79 @@ ext{
 
 
 dependencies {
-    testImplementation libs.junit
-    implementation libs.guava
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "3.2.12"
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: "3.2.12"
-    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-bootstrap', version: '4.1.1'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.12'
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server:3.2.12'
-    implementation 'org.springframework.boot:spring-boot-starter-security:3.2.12'
-    implementation 'org.modelmapper:modelmapper:3.2.0'
-    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
-    annotationProcessor group: 'org.projectlombok', name: 'lombok' , version: '1.18.28'
-    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
-    testImplementation group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
-    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
-    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
-    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
-    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
-    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
-    implementation 'org.springframework.boot:spring-boot-starter'
-    implementation 'io.github.cdimascio:java-dotenv:5.2.2'
+    // Testing Framework
+    testImplementation libs.junit // JUnit - Standard Java testing framework for unit tests
 
+    // Utility Libraries
+    implementation libs.guava // Google Guava - Collection of core Java libraries (collections, caching, primitives support, etc.)
+
+    // Spring Boot Core Web Framework
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "3.2.12"
+    // Spring Boot Web Starter - Includes embedded Tomcat, Spring MVC, RESTful web services support
+
+    // Application Monitoring & Health Checks
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: "3.2.12"
+    // Spring Boot Actuator - Production-ready features like health checks, metrics, monitoring endpoints
+
+    // Spring Cloud Configuration
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-bootstrap', version: '4.1.1'
+    // Spring Cloud Bootstrap - Enables bootstrap context for loading external configuration before main application context
+
+    // Database & ORM
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.12'
+    // Spring Data JPA - Object-relational mapping, repository pattern, database operations with Hibernate
+
+    // Security & Authentication
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server:3.2.12'
+    // OAuth2 Resource Server - Validates JWT tokens, handles OAuth2 resource server functionality
+
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.2.12'
+    // Spring Security - Authentication, authorization, protection against common attacks
+
+    // Object Mapping
+    implementation 'org.modelmapper:modelmapper:3.2.0'
+    // ModelMapper - Automatically maps between different object models (DTO to Entity conversions)
+
+    // Database Driver
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
+    // MySQL JDBC Driver - Connects Java application to MySQL database
+
+    // Code Generation & Boilerplate Reduction
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+    // Lombok (compile-time) - Generates getters, setters, constructors, toString, etc. via annotations
+
+    annotationProcessor group: 'org.projectlombok', name: 'lombok' , version: '1.18.28'
+    // Lombok Annotation Processor - Processes Lombok annotations during compilation
+
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+    // Lombok for test annotation processing - Enables Lombok in test classes
+
+    testImplementation group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+    // Lombok for tests - Makes Lombok available in test scope
+
+    // JWT Token Handling
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    // JJWT API - JSON Web Token creation, parsing, and verification interface
+
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    // JJWT Implementation - Core JWT processing implementation
+
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    // JJWT Jackson Support - JSON serialization/deserialization for JWT claims using Jackson
+
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    // JJWT Implementation (runtime) - Ensures implementation is available at runtime
+
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    // JJWT Jackson (runtime) - Ensures Jackson support is available at runtime
+
+    // Spring Boot Foundation
+    implementation 'org.springframework.boot:spring-boot-starter'
+    // Spring Boot Core Starter - Basic Spring Boot functionality, auto-configuration, logging
+
+    // Environment Configuration
+    implementation 'io.github.cdimascio:java-dotenv:5.2.2'
+    // Java Dotenv - Loads environment variables from .env files for configuration management
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
