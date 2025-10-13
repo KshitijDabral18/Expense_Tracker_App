@@ -69,10 +69,14 @@ public class JWTService {
      */
     private Claims extractAllClaims(String token) {
         return Jwts.parserBuilder()
-                .setSigningKey(getSignKey())  // Set the key for signature verification
-                .build()                      // Build the parser
-                .parseClaimsJws(token)       // Parse and verify the token
-                .getBody();                  // Extract the claims (payload)
+                // Set the signing key used to verify the JWT token's signature
+                .setSigningKey(getSignKey())
+                // Build the JWT parser with the configured settings
+                .build()
+                // Parse and validate the JWT token string, verifying signature and structure
+                .parseClaimsJws(token)
+                // Extract and return the claims (payload data) from the token
+                .getBody();
     }
 
     /**

@@ -19,7 +19,9 @@ public class UserInfo {
     @Id // JPA: Marks this field as the primary key
     @Column(name = "user_id") // JPA: Maps this field to the "id" column in the database
     private String userId;
+    @Column(name ="username")
     private String username;
+    @Column(name ="password")
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
