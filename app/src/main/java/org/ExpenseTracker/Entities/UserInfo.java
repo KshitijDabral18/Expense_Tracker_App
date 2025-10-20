@@ -32,4 +32,5 @@ public class UserInfo {
     // Assuming the join table is user_roles
     private Set<UserRoles> roles= new HashSet<>();
 
+
 }
